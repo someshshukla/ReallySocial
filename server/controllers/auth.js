@@ -37,6 +37,6 @@ export const register = async (req, res) => {
         res.status(201).json(savedUser);
 
     } catch(err){
-
+            res.status(500).json({error: err.message});
     }
-}
+};
