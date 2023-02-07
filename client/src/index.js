@@ -1,22 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
 import authReducer from "./state";
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
-import { 
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import {
   persistStore,
-  peristsReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER
-} from "redux-persist/lib/storage";
-import storage from "redux-persist/integration/react";
-import { persistGate } from "redux-persist/integration/react";
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { PersistGate } from "redux-persist/integration/react";
 
 const persistConfig = { key: "root", storage, version: 1};
 const persistedReducer = persistReducer(persistConfig, authReducer);
